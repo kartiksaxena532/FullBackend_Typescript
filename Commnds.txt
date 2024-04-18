@@ -1,0 +1,15 @@
+npm init 
+npm install -D ts-node nodemon @types/node  ( D for dev dependencies typescripr ki node and the nodemon for running server continously)4
+ dev dependencies ko hum sirf developemnet like type script mein use karte hai 
+ baaki in prodeuction usko javascript mein transpile karte hai 
+ 
+ ab humne ek cheez aur li hai jo hai ts-node isse ye hota hai ki typescript ka output dekhne 
+ ke liye humko use javascript mein karna padega toh hum ts-node se directly output dekh sakte hai
+
+ aur node ke types ko bhi install kar liya hai isme
+
+fir "tsc" jo jo typescript ka compiler hai usko bhi install kar liya hai
+
+npm tsc --init
+
+
