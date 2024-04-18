@@ -28,3 +28,10 @@ npm init @eslint/config
 eslint ko pata hota hai ki kosni bad pratice use hui hai code mein 
 isko fix karne mein help krta hai toh include every time in evry project
 
+
+// express setup
+
+express ko alag se src mein banana is a good practice kyuki ye jo hai 
+sirf app.ts mein app banane ka kaam hoga na ki server ko chlanae ka kaam hoga 
+isse readeablity bhadegi and isse humko pata chalega ki konsa file
+kya kaam kar raha hai
