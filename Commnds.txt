@@ -19,3 +19,12 @@ npm tsc --init
 git add .
 git commit -m "remove gitignore files"
 git push" 
+
+
+//why add eslint
+
+npm init @eslint/config 
+
+eslint ko pata hota hai ki kosni bad pratice use hui hai code mein 
+isko fix karne mein help krta hai toh include every time in evry project
+
