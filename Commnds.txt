@@ -12,3 +12,10 @@ fir "tsc" jo jo typescript ka compiler hai usko bhi install kar liya hai
 
 npm tsc --init
 
+
+//to remove node modules or other faltu files
+
+"git rm -r --cached .
+git add .
+git commit -m "remove gitignore files"
+git push" 
