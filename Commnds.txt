@@ -12,4 +12,3 @@ fir "tsc" jo jo typescript ka compiler hai usko bhi install kar liya hai
 
 npm tsc --init
 
-
