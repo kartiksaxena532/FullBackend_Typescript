@@ -1,5 +1,18 @@
-console.log("hello kartikk");
+import app from "./src/app"
 
-function test() {
-  console.log("hello kart");
-}
+
+
+const startServer=()=>{
+
+const port = process.env.PORT|| 3000;
+
+app.listen(port,()=>{
+
+
+    console.log(`server is running listning on : ${port}`)
+});
+
+};
+
+
+startServer();
