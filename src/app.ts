@@ -2,6 +2,7 @@
 import express from "express";
 
 import globalErrorHandler from "./middlewares/globalErrorHandlers";
+import userRouter from "./user/userRouter";
 
 
 
@@ -19,6 +20,8 @@ app.get("/kartik", (req, res,next) => {
 
 }
 );
+
+app.use(userRouter);
 app.use(globalErrorHandler)
 
 export default app;

@@ -10,7 +10,7 @@ const port = config.port || 3000;
 app.listen(port,()=>{
 
 
-    console.log(`server is running listning on : ${port}`)
+    console.log(`server is running listening on : ${port}`)
 });
 
 };
