@@ -35,3 +35,19 @@ express ko alag se src mein banana is a good practice kyuki ye jo hai
 sirf app.ts mein app banane ka kaam hoga na ki server ko chlanae ka kaam hoga 
 isse readeablity bhadegi and isse humko pata chalega ki konsa file
 kya kaam kar raha hai
+
+
+used to give the differetiation between the production and the 
+development part so hum develoment mein "err.stack" bhej ke saara error padh sakte hai
+ki kisme kya error aaya hai baaki isko env mein store kardo mast.
+
+errorStack: config .env ==="development" ? err.stack: "" , 
+
+NODE_ENV=development 
+//PRODUCTION LIKHENGE AGAR PRODUCTION HUA TOH
+
+
+//way of throwing errors in js using http errors pacakge
+import { HttpError } from 'http-errors
+    const error = createHttpError(400,"Not Found");
+throw error;
