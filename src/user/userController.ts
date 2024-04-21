@@ -27,9 +27,18 @@ if (user){
 const hashedPassword = await bcrypt.hash(password,10) //salt rounds ka use hota hai password ko secure karne ke liye password
 //10 sweet spot hota hai
 
+const newUser =  await userModel.create({
+    name,
+    email,
+    password:hashedPassword //bcrypt wala
+});
+
+//token generation by jwt 
+
+
 
 //response
-  res.json({message:"user created success"})
+  res.json({id:newUser._id})
 };
 
 export { createUser };
