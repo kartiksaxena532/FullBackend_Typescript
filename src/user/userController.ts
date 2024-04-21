@@ -4,6 +4,7 @@ import userModel from "./userModel";
 import bcrypt from "bcrypt";
 import {sign} from "jsonwebtoken";
 import  {config} from "../config/config"
+import { User } from "./userTypes";
 const createUser = async (
     
     req: Request,
@@ -18,24 +19,39 @@ if(!name||!email||!password){
     return next(error);
 }
 //DATABASE CALL
-const user = await userModel.findOne({email});
 
-if (user){
-    const error = createHttpError(400,"User already exist with this email")
-    return next(error);
+// //advanced error handling hui ai neeche ke 3 mein jisme error ko detect karne ke 
+//liye paad bele gaye hai kaafi saare try catch laga ke
+try{
+    const user = await userModel.findOne({email});
+    if (user){
+        const error = createHttpError(400,"User already exist with this email")
+        return next(error);
+    }
 }
+
+catch(err){
+return next(createHttpError(500,"Error while getting  user")) //advanced error handling
+
+}
+let newUser:User;
+try{
 //process
 const hashedPassword = await bcrypt.hash(password,10) //salt rounds ka use hota hai password ko secure karne ke liye password
 //10 sweet spot hota hai
-
-const newUser =  await userModel.create({
+newUser =  await userModel.create({
     name,
     email,
     password:hashedPassword //bcrypt wala
 });
 
-//token generation by jwt or jsonwebtoken
+}
+catch(err){
+    return next(createHttpError(500,"Error while creating user")) //advanced error handling
+}
 
+//token generation by jwt or jsonwebtoken
+try{
 const token = sign({sub:newUser._id},config.jwtSecret as string, 
     {expiresIn: "7d",
         algorithm:"HS256",
@@ -43,6 +59,10 @@ const token = sign({sub:newUser._id},config.jwtSecret as string,
 
 //response
   res.json({accessToken : token})
+}
+catch(err){
+    return next(createHttpError(500,"Error while signing the jwt user")) //advanced error handling 
+}
 };
 
 export { createUser };
