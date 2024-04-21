@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import userModel from "./userModel";
+import bcrypt from "bcrypt";
 
 const createUser = async (
     
@@ -23,6 +24,10 @@ if (user){
     return next(error);
 }
 //process
+const hashedPassword = await bcrypt.hash(password,10) //salt rounds ka use hota hai password ko secure karne ke liye password
+//10 sweet spot hota hai
+
+
 //response
   res.json({message:"user created success"})
 };

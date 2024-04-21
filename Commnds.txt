@@ -51,3 +51,13 @@ NODE_ENV=development
 import { HttpError } from 'http-errors
     const error = createHttpError(400,"Not Found");
 throw error;
+
+// we use a new approach other than MVC archietechture ko ki hai jis cheeze ki 
+zaruart hai uska ek folder banao aur usme hi mvc krdo 
+
+jaise ki hume user ki zarurat hai toh uska ek folder banao aur usme hi saare api ko bind do
+aur usme hi saare routes ko bind do
+
+//ab password ko hash karne ke liye hum bcrypt use karenge
+const bcrypt = require('bcrypt');
+const saltRounds = 10; //same string ka same hash ban gya toh pattern detect ho jaayega isislite we use salt round
