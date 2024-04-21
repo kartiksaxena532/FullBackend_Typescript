@@ -7,7 +7,8 @@ import userRouter from "./user/userRouter";
 
 
 const app = express();
-
+//midddleware used for  json parsing
+app.use(express.json());
 app.get("/", (req, res,next) => {
 
     res.json({ message: "Hello kartik welcome to backend" });
