@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { User } from "./userTypes";
 
-const schema = new mongoose.Schema( {
+const userSchema = new mongoose.Schema<User>( {
 
 name:{
 type: String,
@@ -17,5 +18,12 @@ email:{
         
         required:true,
         }
-},{timestamps:true})
-export default schema;
+},{timestamps:true}
+//users
+
+);
+export default mongoose.model<User>('User',userSchema)
+
+
+
+
