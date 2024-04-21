@@ -21,7 +21,8 @@ app.get("/kartik", (req, res,next) => {
 }
 );
 
-app.use(userRouter);
+app.use("/api/users", userRouter);
+
 app.use(globalErrorHandler)
 
 export default app;
