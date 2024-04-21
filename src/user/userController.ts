@@ -122,3 +122,4 @@ const loginUser = async (req:Request,res:Response,next:NextFunction)=>{
 
 
 export { createUser ,loginUser };
+//adding new routes
