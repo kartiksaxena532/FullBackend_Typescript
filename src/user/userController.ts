@@ -1,10 +1,11 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, response } from "express";
 import createHttpError from "http-errors";
 import userModel from "./userModel";
 import bcrypt from "bcrypt";
 import {sign} from "jsonwebtoken";
 import  {config} from "../config/config"
 import { User } from "./userTypes";
+
 const createUser = async (
     
     req: Request,
@@ -58,11 +59,18 @@ const token = sign({sub:newUser._id},config.jwtSecret as string,
     })
 
 //response
-  res.json({accessToken : token})
+  res.status(201).json({accessToken : token});
 }
 catch(err){
     return next(createHttpError(500,"Error while signing the jwt user")) //advanced error handling 
 }
 };
 
-export { createUser };
+const loginUser = async (req:Request,res:Response,next:NextFunction)=>{
+
+    res.json({message:"ok vai"})
+
+
+}
+
+export { createUser ,loginUser };
