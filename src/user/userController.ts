@@ -36,7 +36,10 @@ const newUser =  await userModel.create({
 
 //token generation by jwt or jsonwebtoken
 
-const token = sign({sub:newUser._id},config.jwtSecret as string, {expiresIn: "7d"})
+const token = sign({sub:newUser._id},config.jwtSecret as string, 
+    {expiresIn: "7d",
+        algorithm:"HS256",
+    })
 
 //response
   res.json({accessToken : token})
