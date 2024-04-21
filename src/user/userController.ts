@@ -1,14 +1,10 @@
-import { Request, Response, NextFunction, response } from "express";
+import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import userModel from "./userModel";
 import bcrypt from "bcrypt";
 import {sign} from "jsonwebtoken";
 import  {config} from "../config/config"
 import { User } from "./userTypes";
-
-
-
-
 
 
 
@@ -25,7 +21,10 @@ if(!name||!email||!password){
     const error =createHttpError(400,"all feilds are required")
     return next(error);
 }
+
+
 //DATABASE CALL
+
 
 // //advanced error handling hui ai neeche ke 3 mein jisme error ko detect karne ke 
 //liye paad bele gaye hai kaafi saare try catch laga ke
@@ -47,7 +46,11 @@ let newUser:User;
 
 
 try{
+
+
 //process
+
+
 const hashedPassword = await bcrypt.hash(password,10) //salt rounds ka use hota hai password ko secure karne ke liye password
 //10 sweet spot hota hai
 newUser =  await userModel.create({
@@ -60,6 +63,8 @@ newUser =  await userModel.create({
 catch(err){
     return next(createHttpError(500,"Error while creating user")) //advanced error handling
 }
+
+
 
 //token generation by jwt or jsonwebtoken
 try{
@@ -78,10 +83,7 @@ catch(err){
 
 
 
-
-
-
-
+//login user routes
 
 
 
