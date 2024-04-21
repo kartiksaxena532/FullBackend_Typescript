@@ -61,3 +61,11 @@ aur usme hi saare routes ko bind do
 //ab password ko hash karne ke liye hum bcrypt use karenge
 const bcrypt = require('bcrypt');
 const saltRounds = 10; //same string ka same hash ban gya toh pattern detect ho jaayega isislite we use salt round
+
+hs256 algoritm 
+(symmetric key wala sysytem jo cyber mein padha tha) 
+se hota hai hashing aur
+ ek tha iska 
+rs256 algo 
+(asymmetric key wala sysytem jo cyber mein padha tha)
+jswebtoken ki website pe dekh sakte hai isko
