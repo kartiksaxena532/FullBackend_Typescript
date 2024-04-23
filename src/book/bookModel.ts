@@ -8,7 +8,7 @@ const bookSchema = new mongoose.Schema<Book>({
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        
     },
     coverImage:{
         type:String,
@@ -21,7 +21,6 @@ genre:{
 },
 _id: {
     type: String,
-    required: true
 },
 },{timestamps : true})
 

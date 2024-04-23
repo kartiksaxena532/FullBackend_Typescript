@@ -1,12 +1,12 @@
 import { User } from "../user/userTypes";
 
-export interface Book{
-    _id : String;
-    title:String;
+export interface Book {
+    _id: string;
+    title: string;
     author: User;
-    coverImage:String;
-    genre:String;
-    file:String;
-    createdAt:Date;
-    updatedAt:Date;
+    genre: string;
+    coverImage: string;
+    file: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
