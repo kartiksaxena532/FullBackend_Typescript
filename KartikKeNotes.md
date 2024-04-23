@@ -75,4 +75,25 @@ jswebtoken ki website pe dekh sakte hai isko
 
 // we use ulter to make the files upload as the multipart and the use of multer is as a middleware in the book.router path
 
-bookRouter.post("/",()=>{}, createBook); middleware ka part beech mien jaise hai waise lagega.
+bookRouter.post("/",()=>{}, createBook); middleware ka part beech mien jaise hai waise lagega. but this is a primitive way 
+
+ab hum ek naya multer ka function banake usko use kar sakte hai
+
+jo ki ek path lega destinatioon ka using path form node in book router
+
+
+
+const upload = multer({
+
+    
+    dest : path.resolve(__dirname,"../../public/data/uploads"), // basically current directory name aur nayei storage aur uska path ko bta rah hai toh ye path banana padega manually
+    limits :{fileSize:3e7}  //30 mb approx 30*1000*1000 bytes but like hota 1024 hai approx kar liya
+
+});
+// as a middleware  use hoga
+bookRouter.post("/",upload.fields([
+
+    {name: "coverImage" ,maxCount: 1},
+    {name:'file' , maxCount:1},
+    
+]), createBook); //checkout upload ke methods like single etc.
