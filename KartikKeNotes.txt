@@ -72,3 +72,7 @@ jswebtoken ki website pe dekh sakte hai isko
 
 // we use status code 201 for the creation of new user
 // we use status code 200 for the successfull operation
+
+// we use ulter to make the files upload as the multipart and the use of multer is as a middleware in the book.router path
+
+bookRouter.post("/",()=>{}, createBook); middleware ka part beech mien jaise hai waise lagega.

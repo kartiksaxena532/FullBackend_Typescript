@@ -3,7 +3,7 @@ import createBook from "./bookController";
 
 const bookRouter = express.Router();
 
-bookRouter.post("/",createBook);
+bookRouter.post("/",()=>{}, createBook);
 
 
 export default bookRouter;
