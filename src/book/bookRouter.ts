@@ -1,6 +1,6 @@
 import path from "node:path"
 import express from "express"
-import createBook from "./bookController";
+import {createBook} from "./bookController";
 import multer from "multer";
 const bookRouter = express.Router();
 

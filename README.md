@@ -97,3 +97,23 @@ bookRouter.post("/",upload.fields([
     {name:'file' , maxCount:1},
 
 ]), createBook); //checkout upload ke methods like single etc.
+
+const files = req.files as{ [filename :string] : Express.Multer.File[]} // file type string karke multer ke file type array se match kar diya hai
+const coverImageMimeType = files.coverImage[0];
+
+// sab kuch iske hisaab se likhna hoga humko
+like mime type,fieldname wagera.
+
+ file: [
+    {
+      fieldname: 'file',
+      originalname: 'a-stunning-3d-render-of-a-person-wearing-round-thi-4iZMPrInTmqRQ9-y0x4kUg-8glpsNsXQCCPV92lRR2lfw.jpeg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: 'C:\\Users\\Kartik Saxena\\Desktop\\NewApi\\public\\data\\uploads',
+      filename: '1c358aadbfc45996bc511ee75dc3c52a',
+      path: 'C:\\Users\\Kartik Saxena\\Desktop\\NewApi\\public\\data\\uploads\\1c358aadbfc45996bc511ee75dc3c52a',
+      size: 87923
+    }
+  ]
+
